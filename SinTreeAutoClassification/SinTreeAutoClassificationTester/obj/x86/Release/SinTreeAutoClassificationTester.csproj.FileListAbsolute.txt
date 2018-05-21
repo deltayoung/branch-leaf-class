@@ -1,0 +1,3 @@
+D:\SinTreeAutoClassification\SinTreeAutoClassificationTester\obj\x86\Release\SinTreeAutoClassificationTester.TesterForm.resources
+D:\SinTreeAutoClassification\SinTreeAutoClassificationTester\obj\x86\Release\SinTreeAutoClassificationTester.Properties.Resources.resources
+D:\SinTreeAutoClassification\SinTreeAutoClassificationTester\obj\x86\Release\SinTreeAutoClassificationTester.csproj.GenerateResource.Cache

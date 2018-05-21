@@ -1,0 +1,10 @@
+C:\DC_LAS\PCS\Extensions\SinTreeOperations\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.csprojResolveAssemblyReference.cache
+C:\DC_LAS\PCS\Extensions\SinTreeOperations\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.dll
+C:\DC_LAS\PCS\Extensions\SinTreeOperations\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.pdb
+C:\VrtSin\PCS\bin\Release_HASP_x64\SinTreeAutoClassification.dll
+C:\VrtSin\PCS\bin\Release_HASP_x64\SinTreeAutoClassification.pdb
+C:\VrtSin\Meetings\Calvin\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.csproj.CoreCompileInputs.cache
+C:\VrtSin\Meetings\Calvin\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.csproj.CopyComplete
+C:\VrtSin\Meetings\Calvin\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.dll
+C:\VrtSin\Meetings\Calvin\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.pdb
+C:\VrtSin\Meetings\Calvin\SinTreeAutoClassification\obj\x64\Debug\SinTreeAutoClassification.csprojResolveAssemblyReference.cache

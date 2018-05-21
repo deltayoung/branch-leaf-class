@@ -1,0 +1,79 @@
+﻿  cVector.cpp
+cVector.cpp(24): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(33): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(45): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(86): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(118): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(21): warning C4101: 'afterIndex': unreferenced local variable
+cVector.cpp(427): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+cVector.cpp(449): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+cVector.cpp(453): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+cVector.cpp(1141): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1177): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+cVector.cpp(1186): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1189): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1199): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1208): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1232): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1129): warning C4101: 'b': unreferenced local variable
+cVector.cpp(1281): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1331): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+cVector.cpp(1348): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1351): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1357): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1370): warning C4018: '<': signed/unsigned mismatch
+cVector.cpp(1268): warning C4101: 'b': unreferenced local variable
+  cVector2.cpp
+  Matrix4f.cpp
+Matrix4f.cpp(77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Matrix4f.cpp(86): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ShapeGenerator.cpp
+ShapeGenerator.cpp(33): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(62): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(103): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(125): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(168): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(211): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(233): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(238): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+ShapeGenerator.cpp(256): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(268): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(276): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(299): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(361): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(403): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(414): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(436): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(457): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(472): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(492): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(543): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(578): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(582): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+ShapeGenerator.cpp(603): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(528): warning C4101: 'bestchoice': unreferenced local variable
+ShapeGenerator.cpp(623): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(635): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(617): warning C4101: 'b': unreferenced local variable
+ShapeGenerator.cpp(686): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(702): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(678): warning C4101: 'b': unreferenced local variable
+ShapeGenerator.cpp(838): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+ShapeGenerator.cpp(839): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+ShapeGenerator.cpp(840): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+ShapeGenerator.cpp(881): warning C4018: '<': signed/unsigned mismatch
+ShapeGenerator.cpp(807): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
+ShapeGenerator.cpp(830): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
+ShapeGenerator.cpp(786): warning C4101: 'totalPointCount': unreferenced local variable
+  stdafx.cpp
+  Win32Project1.cpp
+Win32Project1.cpp(66): warning C4018: '<': signed/unsigned mismatch
+  dllmain.cpp
+     Creating library D:\SinTreeAutoClassification\SinTreeAutoClassification\Release\Win32Project1.lib and object D:\SinTreeAutoClassification\SinTreeAutoClassification\Release\Win32Project1.exp
+  Generating code
+  All 316 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Win32Project1.vcxproj -> D:\SinTreeAutoClassification\SinTreeAutoClassification\Release\Win32Project1.dll
+  Win32Project1.vcxproj -> D:\SinTreeAutoClassification\SinTreeAutoClassification\Release\Win32Project1.pdb (Full PDB)
