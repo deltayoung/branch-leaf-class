@@ -16,7 +16,7 @@
 
 // this is where my code comes in... 
 // end of the day just modify the classArray 
-WIN32PROJECT1_API int Classify(int itemNr, LASPointData* lasPointArray, unsigned char* classArray)
+WIN32PROJECT1_API int Classify(int itemNr, float intensityEstimation, float neighbourhoodEstimation, LASPointData* lasPointArray, unsigned char* classArray)
 {
 
 	/*
@@ -39,13 +39,6 @@ WIN32PROJECT1_API int Classify(int itemNr, LASPointData* lasPointArray, unsigned
 		
 		
 	*/
-
-
-	float intensityEstimation = 0.49f; 
-	float NeighbourhoodEstimation = 0.25f; 
-
-
-
 
 	int a; 
 	ShapeGenerator sg; 
@@ -113,8 +106,8 @@ WIN32PROJECT1_API int Classify(int itemNr, LASPointData* lasPointArray, unsigned
 
 		
 	// this is the function for the filtering of points 
-	sg.filterPoints(intensityLimit, NeighbourhoodEstimation);
-	sg.neighbourDistanceLimit = NeighbourhoodEstimation * 0.5f; 
+	sg.filterPoints(intensityLimit, neighbourhoodEstimation);
+	sg.neighbourDistanceLimit = neighbourhoodEstimation * 0.5f; 
 	sg.shortestPathBranchCreation();
 	
 	

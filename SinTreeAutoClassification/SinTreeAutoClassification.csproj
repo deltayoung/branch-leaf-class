@@ -12,11 +12,12 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
     <WarningLevel>0</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>..\..\..\PCS\bin\Release_HASP_x64\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -57,9 +58,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\PCS\bin\Release_HASP_x64\DC_LasReader.dll</HintPath>
     </Reference>
+    <Reference Include="DC_MathLib, Version=1.1.7.19, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PCS\bin\Release_HASP_x64\DC_MathLib.dll</HintPath>
+    </Reference>
     <Reference Include="PCSCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\PCS\bin\Release_HASP_x64\PCSCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapeFile, Version=1.0.6457.25145, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PCS\bin\Release_HASP_x64\ShapeFile.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,7 +79,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="zetrix, Version=2018.1.1.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <ExecutableExtension>.exe</ExecutableExtension>
       <HintPath>..\..\..\PCS\bin\Release_HASP_x64\zetrix.exe</HintPath>
     </Reference>
   </ItemGroup>

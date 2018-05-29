@@ -70,6 +70,15 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DC_LasReader, Version=1.1.7.2, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PCS\bin\Release_HASP_x64\DC_LasReader.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="ShapeFile, Version=1.0.6457.25145, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PCS\bin\Release_HASP_x64\ShapeFile.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,6 +89,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="zetrix, Version=2018.1.1.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TesterForm.cs">

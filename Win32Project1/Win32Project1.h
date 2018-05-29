@@ -17,4 +17,4 @@ struct WIN32PROJECT1_API LASPointData {
   int isTrunk;
 };
 
-extern "C" WIN32PROJECT1_API int Classify(int itemNr, LASPointData* lasPointArray, unsigned char* classArray);
+extern "C" WIN32PROJECT1_API int Classify(int itemNr, float intensityEstimation, float neighbourhoodEstimation, LASPointData* lasPointArray, unsigned char* classArray);
