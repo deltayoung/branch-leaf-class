@@ -218,10 +218,21 @@ namespace SinTreeAutoClassification
         {
           System.IO.Directory.CreateDirectory(outDir);
         }
-        lasFileReaderWriter.Save_Binary(System.IO.Path.Combine(outDir, System.IO.Path.GetFileName(SingleTreeLasFilePath) + ".out.las"), lasPoints,
+        var classifiedLasPath = System.IO.Path.Combine(outDir, System.IO.Path.GetFileName(SingleTreeLasFilePath) + ".out.las");
+        if (lasFileReaderWriter.Save_Binary(classifiedLasPath, lasPoints,
             lasFileReaderWriter.Header.x_offset, lasFileReaderWriter.Header.y_offset,
             lasFileReaderWriter.Header.z_offset, lasFileReaderWriter.Header.x_scale_factor,
-            lasFileReaderWriter.Header.y_scale_factor, lasFileReaderWriter.Header.z_scale_factor, out errorMsg);
+            lasFileReaderWriter.Header.y_scale_factor, lasFileReaderWriter.Header.z_scale_factor, out errorMsg))
+        {
+          // optimize LAS files for PCS
+          DC_LasReader.DC_LasReader rdr = new DC_LasReader.DC_LasReader();
+          if(rdr.OpenEx(classifiedLasPath, true, true))
+          {
+            File.Delete(classifiedLasPath + ".bak");
+          }
+          //todo make it switchable
+          rdr.Close();
+        }
       }
       else
       {
@@ -262,7 +273,15 @@ namespace SinTreeAutoClassification
       {
         if ((string)item["GUID"] == guid)
         {
-          approxTreeDiameter = (decimal)item["TRUNK_D"];
+          if (item["TRUNK_D"] != DBNull.Value && (decimal)item["TRUNK_D"] > 0)
+          {
+            approxTreeDiameter = (decimal)item["TRUNK_D"];
+          }
+          else
+          {
+            approxTreeDiameter = 2.0M;
+          }
+
 
           treeLocPt = treeLocations.GeoDataTable.GetGeometry(item) as ShapeFile.Point;
           treeLoc[0] = treeLocPt.X;
