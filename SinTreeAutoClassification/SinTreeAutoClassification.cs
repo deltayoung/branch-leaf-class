@@ -269,21 +269,19 @@ namespace SinTreeAutoClassification
     {
       double[] treeLoc = { 0, 0, 0 };
       ShapeFile.Point treeLocPt;
-      foreach (DataRow item in treeLocations.GeoDataTable.TheTable.Rows)
+      foreach (DataRow row in treeLocations.GeoDataTable.TheTable.Rows)
       {
-        if ((string)item["GUID"] == guid)
+        if (row.RowState != DataRowState.Deleted && (string)row["GUID"] == guid)
         {
-          if (item["TRUNK_D"] != DBNull.Value && (decimal)item["TRUNK_D"] > 0)
+          if (row["TRUNK_D"] != DBNull.Value && (decimal)row["TRUNK_D"] > 0)
           {
-            approxTreeDiameter = (decimal)item["TRUNK_D"];
+            approxTreeDiameter = (decimal)row["TRUNK_D"];
           }
           else
           {
             approxTreeDiameter = 2.0M;
           }
-
-
-          treeLocPt = treeLocations.GeoDataTable.GetGeometry(item) as ShapeFile.Point;
+          treeLocPt = treeLocations.GeoDataTable.GetGeometry(row) as ShapeFile.Point;
           treeLoc[0] = treeLocPt.X;
           treeLoc[1] = treeLocPt.Y;
           treeLoc[2] = treeLocPt.Z;
