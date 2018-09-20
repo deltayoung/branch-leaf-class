@@ -80,7 +80,7 @@ namespace SinTreeAutoClassification
       int numOf = 0;
 
 
-      plane_voxels.SaveToPly(SingleTreeLasFilePath.Substring(0, SingleTreeLasFilePath.Length - 4) + "_raw_planes.ply", 0, 0, 0);
+      //plane_voxels.SaveToPly(SingleTreeLasFilePath.Substring(0, SingleTreeLasFilePath.Length - 4) + "_raw_planes.ply", 0, 0, 0);
 
       List<Tuple<int, int, int>> exlcudeList = new List<Tuple<int, int, int>>();
       List<Tuple<int, int, int>> bufferList = new List<Tuple<int, int, int>>();
@@ -142,7 +142,7 @@ namespace SinTreeAutoClassification
       plane_voxels.RemoveIsolatedBlocks(3, out numOf);
       plane_voxels.RemoveIsolatedBlocks(5, out numOf);
 
-      plane_voxels.SaveToPly(SingleTreeLasFilePath.Substring(0, SingleTreeLasFilePath.Length - 4) + "_rem_noise.ply", 0, 0, 0);
+      //plane_voxels.SaveToPly(SingleTreeLasFilePath.Substring(0, SingleTreeLasFilePath.Length - 4) + "_rem_noise.ply", 0, 0, 0);
 
       #endregion filter by Voxel model
       #region process
@@ -226,7 +226,7 @@ namespace SinTreeAutoClassification
         {
           // optimize LAS files for PCS
           DC_LasReader.DC_LasReader rdr = new DC_LasReader.DC_LasReader();
-          if(rdr.OpenEx(classifiedLasPath, true, true))
+          if (rdr.OpenEx(classifiedLasPath, true, true))
           {
             File.Delete(classifiedLasPath + ".bak");
           }
