@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using PCS.Vector;
 
 namespace SinTreeAutoClassificationTester
 {
@@ -15,7 +14,7 @@ namespace SinTreeAutoClassificationTester
     private float intensityEstimation;
     private float neighbourhoodEstimation;
     // private TRIConnection groundModel; // currently not used
-    private ShapeConnection treeLocations;
+    private ShapeFile.ShapeCollection treeLocations;
     private List<byte> sourceClasses;
     
     private string lasFilePath;
@@ -57,7 +56,8 @@ namespace SinTreeAutoClassificationTester
     {
       // this is where the start button comes to .
       StartButton.Enabled = false;
-      SinTreeAutoClassification.SinTreeAutoClassification autoClassification = new SinTreeAutoClassification.SinTreeAutoClassification(intensityEstimation, neighbourhoodEstimation, sourceClasses, treeLocations);
+      SinTreeAutoClassification.SinTreeAutoClassification autoClassification = 
+        new SinTreeAutoClassification.SinTreeAutoClassification(intensityEstimation, neighbourhoodEstimation, sourceClasses, treeLocations);
 
       System.IO.FileAttributes attr = System.IO.File.GetAttributes(lasFilePath);
       // dir
@@ -116,9 +116,8 @@ namespace SinTreeAutoClassificationTester
       var path = (sender as TextBox).Text.Trim(' ').Trim('"');
       if (System.IO.File.Exists(path))
       {
-        treeLocations = new ShapeConnection(ShapeFile.ShapeType.ShapeTypePointZ, null, false);
-        treeLocations.FilePath = path;
-        treeLocations.Load_SHP(path);
+        treeLocations = new ShapeFile.ShapeCollection(ShapeFile.ShapeType.ShapeTypePointZ, false);
+        treeLocations.LoadSHP(path);
       }
       ValidateData();
     }

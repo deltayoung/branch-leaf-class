@@ -28,10 +28,10 @@ namespace SinTreeAutoClassification
     private readonly float neighbourhoodEstimation;
     private readonly List<byte> sourceClasses;
     // private PCS.Vector.TRIConnection groundModel; // currently not used
-    private PCS.Vector.ShapeConnection treeLocations;
+    private ShapeFile.ShapeCollection treeLocations;
     private decimal approxTreeDiameter = 0.0M;
 
-    public SinTreeAutoClassification(float intensityEstimation, float neighbourhoodEstimation, List<byte> sourceClasses, PCS.Vector.ShapeConnection treeLocations)
+    public SinTreeAutoClassification(float intensityEstimation, float neighbourhoodEstimation, List<byte> sourceClasses, ShapeFile.ShapeCollection treeLocations)
     {
       this.intensityEstimation = intensityEstimation;
       this.neighbourhoodEstimation = neighbourhoodEstimation;
@@ -269,7 +269,7 @@ namespace SinTreeAutoClassification
     {
       double[] treeLoc = { 0, 0, 0 };
       ShapeFile.Point treeLocPt;
-      foreach (DataRow row in treeLocations.GeoDataTable.TheTable.Rows)
+      foreach (DataRow row in treeLocations.TheGeoDataTable.TheTable.Rows)
       {
         if (row.RowState != DataRowState.Deleted && (string)row["GUID"] == guid)
         {
@@ -281,7 +281,7 @@ namespace SinTreeAutoClassification
           {
             approxTreeDiameter = 2.0M;
           }
-          treeLocPt = treeLocations.GeoDataTable.GetGeometry(row) as ShapeFile.Point;
+          treeLocPt = treeLocations.TheGeoDataTable.GetGeometry(row) as ShapeFile.Point;
           treeLoc[0] = treeLocPt.X;
           treeLoc[1] = treeLocPt.Y;
           treeLoc[2] = treeLocPt.Z;
