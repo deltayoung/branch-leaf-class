@@ -111,6 +111,9 @@ public:
 	
 	// new set of functionality 
 	void shortestPathBranchCreation(); 
+	void constructDistanceGraph(bool singleConnect);
+	void estimateParameters(float &intensityLimit, float &nDistanceLimit);
+
 	bool connectionTest(int a , int b); 
 	void findDistanceNeighbours(); 
 	void findDistanceNeighboursVer2();
