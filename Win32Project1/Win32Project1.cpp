@@ -5,6 +5,8 @@
 #include "Win32Project1.h"
 #include "cVector.h"
 #include "ShapeGenerator.h"
+#include <iostream>
+#include <fstream>
 
 
 
@@ -44,8 +46,6 @@ WIN32PROJECT1_API int Classify(int itemNr, float intensityEstimation, float neig
 	intensityEstimation -= 0.01f; 
 	int a,  originalSize, fliteredSize;
 
-	do
-	{
 		intensityEstimation += 0.01f; // adding 0.01f each time. 
 
 		
@@ -114,27 +114,23 @@ WIN32PROJECT1_API int Classify(int itemNr, float intensityEstimation, float neig
 		for (a = 0; a < sg.lower_trunk_vp.size(); a++)
 			classArray[sg.lower_trunk_vp[a].id] = 40;
 
-
+		
 		// this is the function for the filtering of points 
+		sg.constructDistanceGraph(true);
+		sg.estimateParameters(intensityLimit, neighbourhoodEstimation);
+
 		sg.filterPoints(intensityLimit, neighbourhoodEstimation);
-		sg.neighbourDistanceLimit = neighbourhoodEstimation * 0.5f;
-		sg.shortestPathBranchCreation();
+		//sg.neighbourDistanceLimit = neighbourhoodEstimation * 0.5f;
+		//sg.shortestPathBranchCreation();
+	 	 
 
-
-	
 		fliteredSize = sg.vp.size(); 
-
-
-		if (fliteredSize >= 0.1f * originalSize)
-		{
-			// pushing the classification results back to classArray
+		// pushing the classification results back to classArray
 			for (a = 0; a < sg.vp.size(); a++)
 			{
 				classArray[sg.vp[a].id] = 40;
 			}
-		}
 		
-	} while (fliteredSize < 0.1f * originalSize);
 
 	return 0; 
 }
