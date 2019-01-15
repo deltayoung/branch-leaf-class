@@ -16,7 +16,7 @@ namespace SinTreeAutoClassificationTester
     // private TRIConnection groundModel; // currently not used
     private ShapeFile.ShapeCollection treeLocations;
     private List<byte> sourceClasses;
-    
+
     private string lasFilePath;
 
     public TesterForm()
@@ -48,7 +48,14 @@ namespace SinTreeAutoClassificationTester
       var range = Enumerable.Range(0, 256);
       foreach (var item in range.OrderBy(el => el))
       {
-        SourceClasses.Items.Add(item, true);
+        if (new int[] { 0, 1 }.Contains(item))
+        {
+          SourceClasses.Items.Add(item, true);
+        }
+        else
+        {
+          SourceClasses.Items.Add(item, false);
+        }
       }
     }
 
@@ -56,7 +63,7 @@ namespace SinTreeAutoClassificationTester
     {
       // this is where the start button comes to .
       StartButton.Enabled = false;
-      SinTreeAutoClassification.SinTreeAutoClassification autoClassification = 
+      SinTreeAutoClassification.SinTreeAutoClassification autoClassification =
         new SinTreeAutoClassification.SinTreeAutoClassification(intensityEstimation, neighbourhoodEstimation, sourceClasses, treeLocations);
 
       System.IO.FileAttributes attr = System.IO.File.GetAttributes(lasFilePath);

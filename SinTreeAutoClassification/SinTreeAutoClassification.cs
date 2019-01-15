@@ -48,6 +48,8 @@ namespace SinTreeAutoClassification
 
     public void Classify(string SingleTreeLasFilePath)
     {
+      System.Diagnostics.Trace.WriteLine(String.Format("Classification started of tree: {0}", SingleTreeLasFilePath));
+
       if (disposedValue) throw new ObjectDisposedException("Object disposed: SinTreeAutoClassification");
 
       DC_LasReader.DC_LasReader lasFileReaderWriter = new DC_LasReader.DC_LasReader(); //Reader and writer!!!!!
@@ -91,7 +93,7 @@ namespace SinTreeAutoClassification
         bool prevExists = false;
         var minPlaneKey = plane_voxels.GetMinPlane();
         var maxPlaneKey = plane_voxels.GetMaxPlane();
-        var offset = (double)approxTreeDiameter * 1.5;
+        var offset = (double)approxTreeDiameter * 2.5;
         for (int i = minPlaneKey; i <= (minPlaneKey + (maxPlaneKey - minPlaneKey)); i++)
         {
           if (i > minPlaneKey + (maxPlaneKey - minPlaneKey) * 0.20)
@@ -194,22 +196,28 @@ namespace SinTreeAutoClassification
 
       if (cntr > 0)
       {
+        System.Diagnostics.Trace.WriteLine(String.Format("Classification in unsafe"));
         unsafe
         {
+
           fixed (LASPointData* lasPointArray = lasPointDataArray)
           {
             fixed (byte* classArray = classes)
             {
+              System.Diagnostics.Trace.WriteLine(String.Format("Classification Classify step in"));
               var rv = Classify(itemNr, intensityEstimation, neighbourhoodEstimation, lasPointArray, classArray);
+              System.Diagnostics.Trace.WriteLine(String.Format("Classification Classify step out"));
             }
           }
         }
+        System.Diagnostics.Trace.WriteLine(String.Format("Classification out unsafe"));
 
         //Update classification byte for every las point
         for (int ix = 0; ix < lasPoints.Count; ix++)
         {
           lasPoints[ix].classification = classes[ix];
         }
+        System.Diagnostics.Trace.WriteLine(String.Format("Classification classes updated"));
 
         string errorMsg;
         //Write a new las file
@@ -233,9 +241,11 @@ namespace SinTreeAutoClassification
           //todo make it switchable
           rdr.Close();
         }
+        System.Diagnostics.Trace.WriteLine(String.Format("Classification ended of tree: {0}", SingleTreeLasFilePath));
       }
       else
       {
+        System.Diagnostics.Trace.WriteLine(String.Format("Couldn't identify trunk at tree: {0}", SingleTreeLasFilePath));
         // TODO handle 0 trunk points
       }
       #endregion process
@@ -256,7 +266,7 @@ namespace SinTreeAutoClassification
         }
         else
         {
-          if (distSqr < 0.25)
+          if (distSqr < 1.0)
           {
             return 1;
           }
