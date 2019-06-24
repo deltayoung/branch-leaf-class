@@ -205,7 +205,14 @@ namespace SinTreeAutoClassification
             fixed (byte* classArray = classes)
             {
               System.Diagnostics.Trace.WriteLine(String.Format("Classification Classify step in"));
-              var rv = Classify(itemNr, intensityEstimation, neighbourhoodEstimation, lasPointArray, classArray);
+              try
+              {
+                var rv = Classify(itemNr, intensityEstimation, neighbourhoodEstimation, lasPointArray, classArray);
+              }
+              catch (Exception ex)
+              {
+                System.Diagnostics.Trace.WriteLine(String.Format("Classification Classify error: {0}", ex.Message));
+              }
               System.Diagnostics.Trace.WriteLine(String.Format("Classification Classify step out"));
             }
           }
@@ -232,16 +239,18 @@ namespace SinTreeAutoClassification
             lasFileReaderWriter.Header.z_offset, lasFileReaderWriter.Header.x_scale_factor,
             lasFileReaderWriter.Header.y_scale_factor, lasFileReaderWriter.Header.z_scale_factor, out errorMsg))
         {
+          System.Diagnostics.Trace.WriteLine(String.Format("Classification output LAS optimisation"));
           // optimize LAS files for PCS
           DC_LasReader.DC_LasReader rdr = new DC_LasReader.DC_LasReader();
           if (rdr.OpenEx(classifiedLasPath, true, true))
           {
+            System.Diagnostics.Trace.WriteLine(String.Format("Classification delete BAK file"));
             File.Delete(classifiedLasPath + ".bak");
           }
           //todo make it switchable
           rdr.Close();
+          System.Diagnostics.Trace.WriteLine(String.Format("Classification close rdr"));
         }
-        System.Diagnostics.Trace.WriteLine(String.Format("Classification ended of tree: {0}", SingleTreeLasFilePath));
       }
       else
       {
@@ -249,6 +258,7 @@ namespace SinTreeAutoClassification
         // TODO handle 0 trunk points
       }
       #endregion process
+      System.Diagnostics.Trace.WriteLine(String.Format("Classification ended of tree: {0}", SingleTreeLasFilePath));
       lasFileReaderWriter.Close();
     }
 

@@ -70,7 +70,7 @@ namespace SinTreeAutoClassificationTester
       // dir
       if (attr.HasFlag(System.IO.FileAttributes.Directory))
       {
-        var files = System.IO.Directory.GetFiles(lasFilePath, "*.las");
+        string[] files = System.IO.Directory.GetFiles(lasFilePath, "*.las");
         foreach (string lasFile in files)
         {
           // for each file, run classify
