@@ -26,7 +26,7 @@ namespace SinTreeAutoClassificationTester
       //Initialize license server connection
       PCS.Program.CreateSKL();
       PCS.Program.CreateLicenseServiceConnection0();
-      DC_LasReader.Globals.LicenseService = PCS.Program.LicenseService;
+      DC_LasLib.Globals.LicenseService = PCS.Program.LicenseService;
     }
 
     private void InitializeControls()

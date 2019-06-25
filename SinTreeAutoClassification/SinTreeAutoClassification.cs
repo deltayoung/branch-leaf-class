@@ -4,7 +4,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using DC_LasReader;
+using DC_LasLib;
 
 namespace SinTreeAutoClassification
 {
@@ -52,11 +52,11 @@ namespace SinTreeAutoClassification
 
       if (disposedValue) throw new ObjectDisposedException("Object disposed: SinTreeAutoClassification");
 
-      DC_LasReader.DC_LasReader lasFileReaderWriter = new DC_LasReader.DC_LasReader(); //Reader and writer!!!!!
+      DC_LasLib.Las lasFileReaderWriter = new DC_LasLib.Las(); //Reader and writer!!!!!
 
-      lasFileReaderWriter.Open(SingleTreeLasFilePath, false);
+      lasFileReaderWriter.Open(SingleTreeLasFilePath, enmLasOptimizerType.lasbxs_memory, false);
 
-      List<DC_LasReader.DC_LasPoint> lasPoints = new List<DC_LasReader.DC_LasPoint>(10000); // 10000 is an approximation 
+      List<DC_LasLib.DC_LasPoint> lasPoints = new List<DC_LasLib.DC_LasPoint>(10000); // 10000 is an approximation 
 
       var guid = Path.GetFileNameWithoutExtension(SingleTreeLasFilePath);
       var treeLoc = GetTreeLocationFromShape(guid);
@@ -66,11 +66,11 @@ namespace SinTreeAutoClassification
       var v_size_z = .25;
 
       // init voxel model
-      MathLib.SparseGrid.Sparse3DGridEx<DC_LasReader.DC_LasPoint> plane_voxels = new MathLib.SparseGrid.Sparse3DGridEx<DC_LasPoint>(v_size_xy, v_size_xy, v_size_z, p => p.x, p => p.y, p => p.z);
+      MathLib.SparseGrid.Sparse3DGridEx<DC_LasLib.DC_LasPoint> plane_voxels = new MathLib.SparseGrid.Sparse3DGridEx<DC_LasPoint>(v_size_xy, v_size_xy, v_size_z, p => p.x, p => p.y, p => p.z);
 
-      if (lasFileReaderWriter.Open(SingleTreeLasFilePath, false))
+      if (lasFileReaderWriter.Open(SingleTreeLasFilePath, enmLasOptimizerType.lasbxs_memory, false))
       {
-        foreach (var lasPoint in lasFileReaderWriter.GetPointEnumerator())
+        foreach (var lasPoint in lasFileReaderWriter.GetPointEnumerator(100.0))
         {
           if (sourceClasses.Contains(lasPoint.classification))
           {
@@ -241,7 +241,7 @@ namespace SinTreeAutoClassification
         {
           System.Diagnostics.Trace.WriteLine(String.Format("Classification output LAS optimisation"));
           // optimize LAS files for PCS
-          DC_LasReader.DC_LasReader rdr = new DC_LasReader.DC_LasReader();
+          DC_LasLib.Las rdr = new DC_LasLib.Las();
           if (rdr.OpenEx(classifiedLasPath, true, true))
           {
             System.Diagnostics.Trace.WriteLine(String.Format("Classification delete BAK file"));
